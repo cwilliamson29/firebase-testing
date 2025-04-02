@@ -1,12 +1,13 @@
 
 import './App.css'
+import Auth from "./components/auth.tsx";
 
 function App() {
 
   return (
-    <>
-      hello world
-    </>
+    <div className="flex justify-center align-center">
+      <Auth />
+    </div>
   )
 }
 
