@@ -1,5 +1,5 @@
 import {auth, googleProvider} from "../config/firebase.ts";
-import {createUserWithEmailAndPassword, signInWithPopup, signInWithEmailAndPassword, signOut} from "firebase/auth"
+import {signInWithPopup, signInWithEmailAndPassword, signOut} from "firebase/auth"
 import {useState} from "react";
 
 function Auth() {
@@ -10,16 +10,16 @@ function Auth() {
     const [password, setPassword] = useState("");
 
     const signIn = async () => {
-        try{
+        try {
             await signInWithEmailAndPassword(auth, email, password);
-        }catch(error){
+        } catch (error) {
             console.log(error);
         }
     }
     const signInWithGoogle = async () => {
-        try{
+        try {
             await signInWithPopup(auth, googleProvider);
-        } catch(error){
+        } catch (error) {
             console.log(error);
         }
     }
@@ -35,8 +35,8 @@ function Auth() {
             <div className="mt-5 mb-5 border-b-2 border-gray-300 text-center">
                 or sign in with email and password...
             </div>
-            <input className={input} placeholder="Email Address" type="email" onChange={(e)=>setEmail(e.target.value)} required />
-            <input className={input} placeholder="Password" type="password" onChange={(e)=> setPassword(e.target.value)} required/>
+            <input className={input} placeholder="Email Address" type="email" onChange={(e) => setEmail(e.target.value)} required/>
+            <input className={input} placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)} required/>
             <button type="button" className={button} onClick={signIn}>Sign In</button>
             <button className={button} onClick={logOut}>Sign Out</button>
         </div>
