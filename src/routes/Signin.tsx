@@ -15,7 +15,7 @@ function Signin() {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                console.log(result);
+                console.log(result.user);
                 navigate(('/'))
             })
             .catch((error) => {
@@ -26,7 +26,7 @@ function Signin() {
         e.preventDefault()
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                console.log(result)
+                console.log(result.user.uid)
                 navigate(('/'))
             })
             .catch((error) => {

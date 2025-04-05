@@ -46,7 +46,7 @@ function Signup() {
         if (checkPass) {
             createUserWithEmailAndPassword(auth, email, password)
                 .then((user) => {
-                    console.log(user)
+                    console.log(user.user.uid)
                     navigate("/")
                 })
                 .catch((error) => {
